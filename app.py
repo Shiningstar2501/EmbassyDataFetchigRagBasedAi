@@ -128,7 +128,9 @@
 
 # demo.launch()
 
-
+import subprocess
+subprocess.run(["playwright", "install", "--with-deps"], check=True)
+import nest_asyncio
 import gradio as gr
 import pandas as pd
 import asyncio
@@ -142,6 +144,8 @@ from langchain.chains import LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
+
+nest_asyncio.apply()
 
 llm = Ollama(model="mistral")
 
